@@ -14,8 +14,8 @@ class Result {
             return new ArrayList<>();
         }
 
-
         for (int i = 1; i < grades.size(); i++) {
+            if (grades.get(i) >= 0 && grades.get(i) <= 100)
             if (grades.get(i) > 30) {
                 if ((grades.get(i) + 1) % 5 == 0) {
                     modification.add(grades.get(i) + 1);
@@ -28,7 +28,7 @@ class Result {
 
                 }
             } else {
-                modification.add((grades.get(i)));
+                modification.add(grades.get(i));
             }
         }
         return modification;

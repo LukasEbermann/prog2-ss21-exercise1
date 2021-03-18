@@ -23,12 +23,11 @@ public class Testcases {
     }
     @DisplayName("#1 basic")
     @Test
-    void testGrad_basic() {
+    void testGradingStudents_basic() {
         List<Integer> grades = Arrays.asList(4, 73, 67, 38, 33);
 
         List<Integer> actual = Result.gradingStudents(grades);
-
-        List<Integer> expected = Arrays.asList(75, 67, 40, 33);
+        List<Integer> expected = Arrays.asList(75, 67, 40, 35);
 
         assertEquals(expected, actual);
 
@@ -64,14 +63,29 @@ public class Testcases {
     @DisplayName("#4Size of Grade Too Low")
     @Test
     void testGradingStudents_sizeOfGradeTooLow() {
-        List<Integer> grades = Arrays.asList(65, -2, 67, 38, 33);
+        List<Integer> grades = Arrays.asList(-5, 73, 67, 38, 33);
 
         List<Integer> actual = Result.gradingStudents(grades);
 
-        List<Integer> expected = Arrays.asList(null, 67, 40, 33);
+        List<Integer> expected = new ArrayList<>();
 
 
         assertEquals(expected, actual);
 
     }
+    @DisplayName("#5Size of Grade Too High")
+    @Test
+    void testGradingStudents_sizeOfGradeTooHigh() {
+        List<Integer> grades = Arrays.asList(4, 101, 67, 38, 33);
+
+        List<Integer> actual = Result.gradingStudents(grades);
+
+        List<Integer> expected = Arrays.asList(67, 40, 35);
+
+
+        assertEquals(expected, actual);
+
+    }
+
+
 }
